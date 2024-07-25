@@ -1,0 +1,8 @@
+REPORT & DASHBOARD/
+DATAS BACKUP/
+data_api/
+data_charts/
+data_tables/
+
+pycache
+.cache
