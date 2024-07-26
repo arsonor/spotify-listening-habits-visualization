@@ -5,4 +5,5 @@ data_charts/
 data_tables/
 
 pycache
-.cache.env
+.cache
+.env
