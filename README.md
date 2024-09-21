@@ -11,7 +11,7 @@ This project aims to analyze Spotify streaming data, focusing on emerging market
   <img src="images/Dashboard Track Charts performance.png">
 </p>
 <p align="center">
-  <img src="images/Dashboard Audio Distribution.png">
+  <img src="images/Dashboard Audio distribution.png">
 </p>
 
 ## Project Structure
