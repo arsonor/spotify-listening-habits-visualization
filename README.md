@@ -21,7 +21,12 @@ The project follows the process from data acquisition to modeling and visualizat
 ### 1. Data Scraping
 - **Source**: The primary data comes from Spotify's daily and weekly top 200 charts, categorized by country and globally.
 - **Script**: A Python script was used to scrape the Spotify charts data.
+
+You can read the code in the following notebook: [`01_charts_scrapping.ipynb`](code/01_charts_scrapping.ipynb)
+
 - **API Integration**: Additional track and artist information were retrieved using the Spotify API, requiring valid API credentials and access tokens.
+
+The code is in this notebook: [`02_api_spotify.ipynb`](code/02_api_spotify.ipynb)
 
 ### 2. Data Handling
 - **Collected Files**: The raw data is stored in CSV files:
@@ -32,6 +37,8 @@ The project follows the process from data acquisition to modeling and visualizat
 - **Data Cleaning**: The scraped data underwent a cleaning process to remove duplicates, rename columns, and ensure uniformity across different files.
 
 ### 3. Data Modeling
+You can read the code in the following notebook: [`03_data_modeling.ipynb`](code/03_data_modeling.ipynb)
+
 - **Fact and Dimension Tables**: The project follows a star schema approach:
   - **Fact Table (FACT_CHART)**: Consolidates all `charts.csv` data across 15 countries and global charts for three years. Each row represents a track’s rank for a specific country and week.
   - **Dimension Tables**:
@@ -39,8 +46,19 @@ The project follows the process from data acquisition to modeling and visualizat
     - `DIM_Artist` and `DIM_Genre`: Created by merging artist and genre information with the fact table.
     - `DIM_Region`: Adds regional identifiers to the fact table for easier analysis across different countries.
 
-### 4. Data Visualization
+Here the final Star schema in Power BI:
+<p align="center">
+  <img src="images/Star Shema.png">
+</p>
+
+### 4. EDA
+
+A first analysis of the datas is done in this notebook: [`04_first_analysis.ipynb`](code/04_first_analysis.ipynb)
+
+
+### 5. Data Visualization
 - **Power BI Dashboard**: 
+See pictures above
   - Visualizes key metrics such as the number of streams, top-performing artists, and weekly chart movements across different regions.
   - Includes filters by region, time period, artist, and genre to allow in-depth analysis.
   - Highlights trends in music consumption in countries like Nigeria, Indonesia, Brazil, and more.
@@ -50,11 +68,11 @@ The project follows the process from data acquisition to modeling and visualizat
   - Popularity of genres like pop, reggaeton, hip hop, and regional styles.
   - Detailed artist performance, tracking streams and chart positions over time.
 
-### 5. Limitations
+### 6. Limitations
 - The data focuses on mainstream tracks and does not fully represent the diversity of music within each region.
 - User-specific data (such as demographic information or user behavior) was not accessible for this study.
   
-### 6. Future Work
+### 7. Future Work
 - Extending the dataset to cover up to 10 years of streaming data for historical trend analysis.
 - Implementing an ETL pipeline using SSIS to automate weekly data updates in Power BI.
 
