@@ -4,6 +4,16 @@
 
 This project aims to analyze Spotify streaming data, focusing on emerging markets and their music consumption patterns. Using data from various regions over the last three years, the goal is to provide insights into the evolving music trends in these countries and visualize the findings using Power BI.
 
+<p align="center">
+  <img src="images/Dashboard Overall Streams.png">
+</p>
+<p align="center">
+  <img src="images/Dashboard Track Charts performance.png">
+</p>
+<p align="center">
+  <img src="images/Dashboard Audio Distribution.png">
+</p>
+
 ## Project Structure
 
 The project follows the process from data acquisition to modeling and visualization, as described below:
