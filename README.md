@@ -1,4 +1,4 @@
-# Spotify Charts Analysis - Emerging Markets Study
+# Spotify new markets listening habits visualization
 
 ## Overview
 
