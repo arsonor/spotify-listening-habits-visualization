@@ -14,9 +14,17 @@ This project aims to analyze Spotify streaming data, focusing on emerging market
   <img src="images/Dashboard Audio distribution.png">
 </p>
 
-## Context and Project Structure
+## Context
+The idea of this project took root when I listened last February 2024 a podcast on France Culture, where the vice-president of Deezer were interviewed. What particularly struck me was that he stated that Deezer but also Spotify are not profitable yet but hopes to be in 2025.
 
-The project follows the process from data acquisition to modeling and visualization, as described below:
+While streaming platforms are becoming increasingly important in the music industry, it is clear that their business model is not yet sustainable. How can this be explained? What strategies have been put in place to address this?
+
+The market is extremely competitive, which means that platforms are "forced to invest heavily to continue to develop". And the interview concluded in some way:
+"the real key for streaming platforms is to succeed in penetrating countries with a large demographic with a very young audience, particularly in Africa, India or Latin America," taking into account the problem that "each country has its own musical and sound culture: its own media." —> understanding the culture in these emergent countries is fundamental in order to create suitable playlists and recommendations.
+
+## Project Structure
+From the data that I will be able to find and retrieve, I want to create a dashboard that helps to better understand music culture and listening habits in these key countries of large demography and young audience.
+For this, the project follows the process from data acquisition to modeling and visualization, as described below:
 
 ### 1. Data Scraping
 - **Source**: The primary data comes from [Spotify's charts](https://charts.spotify.com/charts/view/regional-global-weekly/latest).
@@ -104,7 +112,22 @@ See pictures above
   - Detailed artist performance, tracking streams and chart positions over time.
 
 - **Data Analysis**:
-  
+
+**1. Overall Streams: A Gateway to Market Growth**
+
+The data shows that streaming activity has surged significantly in emerging markets like India, Brazil, and Nigeria over the past three years. Countries like Indonesia and Vietnam, traditionally seen as smaller players in the global music scene, have exhibited remarkable growth rates, with streams nearly doubling year over year. For instance, Indonesia's streams rose by 84.8% over the last three years, making it one of the most dynamic markets. This trend underscores the potential of tapping into young, fast-growing populations in these regions.
+
+The data from the emerging markets, with their explosive growth, suggest a path forward: the key to sustainability lies in increasing penetration in these countries. While streams are up, Spotify must tailor its offerings to local tastes and habits, which vary significantly across regions.
+
+**Key Insight:** Platforms like Spotify must localize their strategies—understanding the local cultures and preferences is crucial to unlocking long-term profitability. This includes curating playlists and media that resonate with these audiences, which we will see further in the breakdown of track and artist performance.
+
+**2. Track Charts Performance and Audio Distribution: Navigating Cultural Nuances**
+
+Looking at individual track performance across emerging markets reveals a striking diversity in musical tastes. The charts in regions like Nigeria and India show a preference for local genres such as Afrobeats and Bollywood soundtracks, which are largely absent in Western-dominated markets. For example, Bad Bunny, though globally dominant, takes a back seat in countries like India, where regional hits dominate the charts. An other example is the prominence of acoustic music in central or south Asia countries or in Brazil (with much more "live" music in this country than all others). That demonstrates that local traditional music and folklore specific to these countries is of prime importance in the culture of thses countries, even inside the young population.
+
+This diversity in musical preference highlights the challenge noted in the podcast: “each country has its own musical and sound culture.” If Spotify aims to convert streams into sustainable revenue, it must address the cultural nuances that define listening habits in different countries. The platform’s global strategy—such as focusing heavily on Western genres—won't work in countries where cultural identities are deeply embedded in music consumption.
+
+**Key Insight:** In order to succeed, Spotify needs to customize its content strategy by deeply integrating local music genres, creators, and culture into its offerings. This could involve working with local artists to create authentic content that resonates with native listeners.  
 
 ### 6. Limitations
 - The data focuses on mainstream tracks and does not fully represent the diversity of music within each region.
@@ -114,8 +137,11 @@ See pictures above
 - Extending the dataset to cover up to 10 years of streaming data for historical trend analysis.
 - Implementing an ETL pipeline using SSIS to automate weekly data updates in Power BI.
 
-## Conclusion
+## Conclusion: Navigating the Global Music Landscape
 This project presents an insightful analysis of global and regional music trends using Spotify data. The findings help understand the growth and popularity of music genres across various emerging markets, visualized effectively through Power BI.
+
+The analysis of Spotify's streaming data in emerging markets aligns closely with the challenges outlined in the podcast. The rapid rise in streams from countries like Indonesia, Nigeria, and India signals the importance of demographic-rich regions to Spotify's future growth.
+The future of streaming platforms like Spotify hinges on creating deeper connections with audiences in these markets—understanding what they listen to, why they listen to it, and how to keep them engaged. For platforms struggling with profitability, this data-driven approach could represent a roadmap to long-term success.
 
 ## Tools & Technologies
 - **Data Scraping**: Python
