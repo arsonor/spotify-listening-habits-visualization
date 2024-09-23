@@ -14,25 +14,60 @@ This project aims to analyze Spotify streaming data, focusing on emerging market
   <img src="images/Dashboard Audio distribution.png">
 </p>
 
-## Project Structure
+## Context and Project Structure
 
 The project follows the process from data acquisition to modeling and visualization, as described below:
 
 ### 1. Data Scraping
-- **Source**: The primary data comes from Spotify's daily and weekly top 200 charts, categorized by country and globally.
-- **Script**: A Python script was used to scrape the Spotify charts data.
+- **Source**: The primary data comes from [Spotify's charts](https://charts.spotify.com/charts/view/regional-global-weekly/latest).
+  - Weekly ranking (top 200) songs by number of streams (1 stream = minimum 30s of listening)
+  - Categorized by users from a specific country (more than 70) and globally (on users worldwide).
 
-You can read the code in the following notebook: [`01_charts_scrapping.ipynb`](code/01_charts_scrapping.ipynb)
+  **Choice of study framework:**
 
-- **API Integration**: Additional track and artist information were retrieved using the Spotify API, requiring valid API credentials and access tokens.
+  For the scope of this project and considering the deadline, I've decided to limit the data according to:
+  - 15 countries + Global
+    - USA
+    - Europe (France, Turkey)
+    - Africa (Nigeria, Egypt)
+    - Asia (Pakistan, India, Indonesia, Philippines, Vietnam, Taiwan, Japan)
+    - Latin America (Brazil, Mexico, Argentina)
 
-The code is in this notebook: [`02_api_spotify.ipynb`](code/02_api_spotify.ipynb)
+  - over the last 3 years (**156** weeks until 02/22/2024)
+
+- **Web Scraping**: A Python script was used to scrape the Spotify charts data.
+
+  You can read the code in the following notebook: [`01_charts_scrapping.ipynb`](code/01_charts_scrapping.ipynb)
+
+- **API Integration**: Additional track and artist information were retrieved using the [Spotify API](https://developer.spotify.com/documentation/web-api), requiring valid API credentials and access tokens.
+
+  The code is in this notebook: [`02_api_spotify.ipynb`](code/02_api_spotify.ipynb)
 
 ### 2. Data Handling
 - **Collected Files**: The raw data is stored in CSV files:
-  - `charts.csv`: Contains streaming chart data, including rank, peak rank, weeks on chart, and trends such as 'moved up,' 'new entry,' and 're-entry.'
-  - `tracks.csv`: Holds track metadata such as track name, release date, and more.
-  - `artists.csv` & `genres.csv`: Include artist and genre information for further enrichment.
+  - `charts.csv`: Contains data from the web scraped charts.
+  Here a description of the main attibutes collected for a weekly song:
+    - **trackName**, **track_ID**, its **image** and **releaseDate**, the **artist** (only the main one) and **artist_ID**
+    - **Rank**: ranking in the chart (1 to 200)
+    - **PeakRank**: highest ranking reached for this track
+    - **PeakDate**: date on which this peak is reached for the first time
+    - **WeeksOnChart**: Total weeks of presence in the chart
+    - **Streak**: Total consecutive weeks (if equal to WeeksOnChart, the track has never left the charts)
+    - **Streams**: target value to aggregate
+    - **Trend**: 'moved up', 'moved down', 'no change', 'new entry', 're-entry'
+    - **entryRank**: rank at first entry in the chart
+    - **entryDate**: date of its first entry
+    - **Week**: date of the corresponding week of the chart
+
+  - `tracks.csv`: Holds for each track ID, the track metadata such as track name, release date, and features like:
+    - the **external_url** so we can access to spotify and hear the song after clicking on it
+    - 5 descriptors: **duration_ms**, **tempo**, **key**, **mode**, **time signature**
+    - 4 confidence measures: **acousticness**, **liveness**, **speechiness**, **instrumentalness**
+    - 4 perceptual measures: **energy**, **loudness**, **danceability**, **valence**
+
+     You will find the meaning of all these parameters in the [API documentation](https://developer.spotify.com/documentation/web-api/reference/get-audio-features)
+
+  - `artists.csv` & `genres.csv`: Include for each artist ID for further enrichment, its **popularity** and **followers** and **genre** of the music (as strange and inconvenient as it may seem, in Spotify, the genre is attached to the artist and not the track).
   
 - **Data Cleaning**: The scraped data underwent a cleaning process to remove duplicates, rename columns, and ensure uniformity across different files.
 
@@ -67,6 +102,9 @@ See pictures above
   - Growth in streams across emerging markets.
   - Popularity of genres like pop, reggaeton, hip hop, and regional styles.
   - Detailed artist performance, tracking streams and chart positions over time.
+
+- **Data Analysis**:
+  
 
 ### 6. Limitations
 - The data focuses on mainstream tracks and does not fully represent the diversity of music within each region.
